@@ -1,19 +1,208 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CODERXSA || MAIN</title>
-    <meta name="description" content="CODERXSA - Main developer on Nebula. Cyberpunk-themed personal website with projects, tools, and resources." />
-    <meta name="keywords" content="CODERXSA, Nebula, developer, programming, tools" />
-    <meta name="author" content="CODERXSA" />
-    <meta property="og:title" content="CODERXSA || MAIN" />
-    <meta property="og:description" content="Welcome to CODERXSA's cyberpunk digital space. Main developer on Nebula." />
-    <meta property="og:type" content="website" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CODERX || MAIN</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #00ffaa;
+      font-family: 'Courier New', Courier, monospace;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      text-align: center;
+      line-height: 1.6;
+    }
+  
+    h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      margin-top: 50px;
+      animation: glitch 1s infinite alternate;
+      letter-spacing: 2px;
+    }
+  
+    @keyframes glitch {
+      0% { transform: translateX(2px); text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff; }
+      50% { transform: translateX(-3px); text-shadow: -2px -2px #ff00ff, 2px 2px #00ffff; }
+      100% { transform: translateX(2px); text-shadow: 2px -2px #ff00ff, -2px 2px #00ffff; }
+    }
+  
+    .bio {
+      font-size: clamp(1.3rem, 2.8vw, 2rem);
+      margin: 20px auto;
+      max-width: 800px;
+      text-shadow: 0 0 12px rgba(0, 255, 170, 0.95);
+      animation: flicker 2s infinite alternate;
+    }
+  
+    @keyframes flicker {
+      0%, 100% { opacity: 1; text-shadow: 0 0 12px #00ffaa; }
+      50% { opacity: 0.85; text-shadow: 0 0 20px #00ffff; }
+    }
+  
+    .dropdown-btn {
+      margin: 25px auto;
+      padding: 14px 28px;
+      border: 2px solid #00ffaa;
+      background: rgba(0, 255, 136, 0.12);
+      color: #00ffaa;
+      font-size: 1.25rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 12px rgba(0, 255, 170, 0.3);
+      backdrop-filter: blur(3px);
+    }
+  
+    .dropdown-btn:hover {
+      background: rgba(0, 255, 136, 0.25);
+      transform: scale(1.08);
+      text-shadow: 1px 1px #ff00ff;
+      border-color: #00ffff;
+      box-shadow: 0 0 16px rgba(0, 255, 170, 0.6);
+    }
+  
+    .dropdown-section {
+      display: none;
+      margin-top: 25px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+  
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  
+    .social-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px 28px;
+      margin: 40px auto;
+      max-width: 1000px;
+      padding: 0 20px;
+      justify-items: center;
+    }
+  
+    .social-buttons a {
+      color: #00ffaa;
+      text-decoration: none;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      padding: 12px 22px;
+      border: 2px solid #00ffaa;
+      border-radius: 8px;
+      background: rgba(0, 255, 136, 0.1);
+      box-shadow: 0 0 14px rgba(0, 255, 136, 0.5);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+  
+    .social-buttons a::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 0, 255, 0.15), transparent 70%);
+      transform: rotate(45deg);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+  
+    .social-buttons a:hover {
+      transform: scale(1.08) rotate(2deg);
+      text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff;
+      filter: hue-rotate(20deg);
+      background: rgba(0, 255, 136, 0.3);
+      box-shadow: 0 0 20px rgba(0, 255, 170, 0.75);
+    }
+  
+    .social-buttons a:hover::after {
+      opacity: 1;
+    }
+    
+  </style>
+  
+</head>
+<body>
+  <h1>CѲДЄЯЖ$А</h1>
+  <div class="bio">
+    <p>Welcome My Cunts!! I'm the main dev on Nebula.</p>
+  </div>
+
+  <button class="dropdown-btn" onclick="toggleSection('store')">🛒 CODERX Store</button>
+  <div id="store" class="dropdown-section">
+    <div class="social-buttons">
+      <a href="https://coderx-movies.onrender.com/" target="_blank">Movies</a>
+      <a href="https://www.youtube.com/@coderxsa" target="_blank">YouTube</a>
+      <a href="https://github.com/coderxsa" target="_blank">Github</a>
+      <a href="https://whatsapp.com/channel/0029VayIXEaISTkIAQEeFL2q" target="_blank">WhatsApp</a>
+      <a href="https://coderxsa-obf.onrender.com/" target="_blank">node.js Encrypt Files</a>
+    </div>
+  </div>
+
+  <button class="dropdown-btn" onclick="toggleSection('tools')">🧪 Host Bot</button>
+  <div id="tools" class="dropdown-section">
+    <div class="social-buttons">
+      <a href="https://play.google.com/store/apps/details?id=com.coderx.creditsocial" target="_blank">Host Nebula</a>
+    </div>
+  </div>
+<footer>
+    <div class="footer-content">
+      <p>Made with 💚 by CODERXSA | © 2025</p>
+      <a class="donate-btn" href="https://pay.yoco.com/coderxsa?amount=15&reference=Donation" target="_blank">☕ Donate / Support</a>
+    </div>
+  </footer>
+  
+  <style>
+    footer {
+      background-color: #0a0a0a;
+      padding: 30px 20px;
+      border-top: 2px solid #00ffaa;
+      margin-top: 60px;
+      box-shadow: 0 -5px 15px rgba(0, 255, 170, 0.1);
+    }
+  
+    .footer-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      color: #00ffaa;
+      font-size: 1rem;
+      text-shadow: 0 0 8px rgba(0, 255, 170, 0.6);
+    }
+  
+    .donate-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 24px;
+      color: #0a0a0a;
+      background-color: #00ffaa;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1rem;
+      box-shadow: 0 0 15px #00ffaa;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    }
+  
+    .donate-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #00ffaa, 0 0 40px #ff00ff;
+      filter: hue-rotate(20deg);
+    }
+  </style>
+  
+  <script>
+    function toggleSection(id) {
+      const section = document.getElementById(id);
+      section.style.display = section.style.display === 'none' || !section.style.display ? 'block' : 'none';
+    }
+  </script>
+</body>
 </html>
